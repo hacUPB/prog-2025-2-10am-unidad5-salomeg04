@@ -1,0 +1,8 @@
+archivo = open("./archivos/textoejercicio1.txt","r")
+#archivo.readline()
+#archivo.readline()
+#archivo.read(11)
+archivo.seek(10)    #muestra los caracteres apartir del numero del caracter que se ponga en ()
+datos = archivo.readline()
+print(datos)
+archivo.close()
