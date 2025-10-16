@@ -1,0 +1,7 @@
+archivo = open("./archivos/textoejercicio1.txt","r")
+archivo.readline()
+archivo.readline()
+archivo.read(11)
+datos = archivo.readline()
+print(datos)
+archivo.close()
