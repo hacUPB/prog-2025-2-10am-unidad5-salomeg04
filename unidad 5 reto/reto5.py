@@ -9,19 +9,24 @@ archivo_txt = "C:/Users/salit/OneDrive/Documentos/repo-programacion/prog-2025-2-
 def ver_csv():
     with open(archivo_csv, newline='', encoding='utf-8') as archivo:
         lector = csv.reader(archivo)
+        ##enumerate=> itera la lista obteniendo indice y valor
         for i, fila in enumerate(lector):
             print(fila)
             if i == 14:
                 break
 
 def calcular_estadisticas():
+    data = open(archivo_csv, newline='', encoding='utf-8')
+    lector = csv.DictReader(data)
+    print("Columnas", lector.fieldnames)
     columna = input("Escribe el nombre de la columna que quieres analizar: ")
-    with open(archivo_csv, newline='', encoding='utf-8') as archivo:
-        lector = csv.DictReader(archivo)
+    with data:
         datos = []
         for fila in lector:
             valor = fila.get(columna)
-            if valor:
+            if valor : 
+                ##evaluar condiciones que pueden causer un error, si la expresion genera error pasa a la excepcion 
+                # en este caso genera un pass que lo que hace es ignorar el error y continuar con el flujo
                 try:
                     datos.append(float(valor))
                 except:
@@ -29,7 +34,7 @@ def calcular_estadisticas():
     if len(datos) == 0:
         print("No hay datos numéricos.")
         return
-    datos.sort()
+    datos.sort() ##Ordena de menor a mayor la lista
     total = len(datos)
     promedio = sum(datos) / total
     mediana = datos[total//2] if total % 2 == 1 else (datos[total//2 - 1] + datos[total//2]) / 2
@@ -42,9 +47,11 @@ def calcular_estadisticas():
     print("Máximo:", max(datos))
 
 def graficos_csv():
+    data = open(archivo_csv, newline='', encoding='utf-8')
+    lector = csv.DictReader(data)
+    print("Columnas", lector.fieldnames)
     columna = input("Escribe el nombre de la columna que quieres graficar: ")
-    with open(archivo_csv, newline='', encoding='utf-8') as archivo:
-        lector = csv.DictReader(archivo)
+    with data:
         datos = []
         for fila in lector:
             valor = fila.get(columna)
@@ -66,7 +73,9 @@ def graficos_csv():
 def contar_txt():
     with open(archivo_txt, "r", encoding="utf-8") as archivo:
         texto = archivo.read()
+        ## split = divide la cadena en una lista
         palabras = texto.split()
+        ## cuenta los elementos de la lista 
         print("Palabras:", len(palabras))
         print("Con espacios:", len(texto))
         print("Sin espacios:", len(texto.replace(" ", "").replace("\n", "")))
@@ -77,9 +86,11 @@ def cambiar_txt():
     nueva = input("Palabra nueva: ")
     with open(archivo_txt, "r", encoding="utf-8") as archivo:
         texto = archivo.read()
+        print("texto virgen:", texto)
     texto = texto.replace(vieja, nueva)
     with open(archivo_txt, "w", encoding="utf-8") as archivo:
         archivo.write(texto)
+        print("texto nuevo:", texto)
     print("Listo, ya se cambió.")
 
 def vocales_txt():
