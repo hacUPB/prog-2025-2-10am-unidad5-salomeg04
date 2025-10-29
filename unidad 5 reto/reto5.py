@@ -1,11 +1,11 @@
 import csv
 import matplotlib.pyplot as plt
 
-# Archivos que voy a usar
+
 archivo_csv = "C:/Users/salit/OneDrive/Documentos/repo-programacion/prog-2025-2-10am-unidad5-salomeg04/unidad 5 reto/Normales_climatológicas_del_Ozono_20251028.csv"
 archivo_txt = "C:/Users/salit/OneDrive/Documentos/repo-programacion/prog-2025-2-10am-unidad5-salomeg04/unidad 5 reto/La calidad del aire en Colombia.txt"
 
-# Ver primeras filas del CSV
+
 def ver_csv():
     with open(archivo_csv, newline='', encoding='utf-8') as archivo:
         lector = csv.reader(archivo)
@@ -41,7 +41,6 @@ def calcular_estadisticas():
     print("Mínimo:", min(datos))
     print("Máximo:", max(datos))
 
-# Gráficos sin mostrar columnas
 def graficos_csv():
     columna = input("Escribe el nombre de la columna que quieres graficar: ")
     with open(archivo_csv, newline='', encoding='utf-8') as archivo:
@@ -64,7 +63,6 @@ def graficos_csv():
     plt.title("Gráfico de barras")
     plt.show()
 
-# Contar palabras y letras del TXT
 def contar_txt():
     with open(archivo_txt, "r", encoding="utf-8") as archivo:
         texto = archivo.read()
@@ -73,7 +71,7 @@ def contar_txt():
         print("Con espacios:", len(texto))
         print("Sin espacios:", len(texto.replace(" ", "").replace("\n", "")))
 
-# Cambiar palabra en el TXT
+
 def cambiar_txt():
     vieja = input("Palabra que quieres cambiar: ")
     nueva = input("Palabra nueva: ")
@@ -84,7 +82,6 @@ def cambiar_txt():
         archivo.write(texto)
     print("Listo, ya se cambió.")
 
-# Contar vocales en el TXT
 def vocales_txt():
     with open(archivo_txt, "r", encoding="utf-8") as archivo:
         texto = archivo.read().lower()
@@ -94,7 +91,7 @@ def vocales_txt():
     plt.title("Vocales en el texto")
     plt.show()
 
-# Menú TXT
+
 def menu_txt():
     print("\nOpciones para el archivo TXT:")
     print("1. Contar palabras y letras")
@@ -108,7 +105,7 @@ def menu_txt():
     elif opcion == "3":
         vocales_txt()
 
-# Menú CSV
+
 def menu_csv():
     print("\nOpciones para el archivo CSV:")
     print("1. Ver primeras filas")
@@ -118,11 +115,10 @@ def menu_csv():
     if opcion == "1":
         ver_csv()
     elif opcion == "2":
-        estadisticas_csv()
+        calcular_estadisticas()
     elif opcion == "3":
         graficos_csv()
 
-# Menú principal
 def main():
     while True:
         print("\n--- Menú Principal ---")
