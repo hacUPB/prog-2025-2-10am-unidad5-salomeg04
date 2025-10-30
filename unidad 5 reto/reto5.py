@@ -9,7 +9,7 @@ archivo_txt = "C:/Users/salit/OneDrive/Documentos/repo-programacion/prog-2025-2-
 def ver_csv():
     with open(archivo_csv, newline='', encoding='utf-8') as archivo:
         lector = csv.reader(archivo)
-        ##enumerate=> itera la lista obteniendo indice y valor
+        ##enumerate itera la lista obteniendo indice y valor
         for i, fila in enumerate(lector):
             print(fila)
             if i == 14:
@@ -17,7 +17,7 @@ def ver_csv():
 
 def calcular_estadisticas():
     data = open(archivo_csv, newline='', encoding='utf-8')
-    lector = csv.DictReader(data)
+    lector = csv.DictReader(data)   ## dictReader lee el archivo y lo convierte en un diccionario usando clave= encabezado y valor=datos
     print("Columnas", lector.fieldnames)
     columna = input("Escribe el nombre de la columna que quieres analizar: ")
     with data:
@@ -129,7 +129,7 @@ def menu_csv():
     elif opcion == "2":
         calcular_estadisticas()
     elif opcion == "3":
-        ()
+        graficos_csv()
 
 def main():
     while True:
