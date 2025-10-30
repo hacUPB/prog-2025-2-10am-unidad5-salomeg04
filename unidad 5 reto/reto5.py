@@ -48,7 +48,8 @@ def calcular_estadisticas():
 
 def graficos_csv():
     data = open(archivo_csv, newline='', encoding='utf-8')
-    lector = csv.DictReader(data)
+    lector = csv.DictReader(data)     ## DictReader = lee el archivo y convierte cada fila en
+                                        ##diccionario clave=encabezado y valor =datos de la fila
     print("Columnas", lector.fieldnames)
     columna = input("Escribe el nombre de la columna que quieres graficar: ")
     with data:
