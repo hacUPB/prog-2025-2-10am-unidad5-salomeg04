@@ -75,7 +75,7 @@ def contar_txt():
         texto = archivo.read()
         ## split = divide la cadena en una lista
         palabras = texto.split()
-        ## cuenta los elementos de la lista 
+        
         print("Palabras:", len(palabras))
         print("Con espacios:", len(texto))
         print("Sin espacios:", len(texto.replace(" ", "").replace("\n", "")))
@@ -128,11 +128,11 @@ def menu_csv():
     elif opcion == "2":
         calcular_estadisticas()
     elif opcion == "3":
-        graficos_csv()
+        ()
 
 def main():
     while True:
-        print("\n--- Menú Principal ---")
+        print("Menú Principal")
         print("1. Usar archivo TXT")
         print("2. Usar archivo CSV")
         print("3. Salir")
