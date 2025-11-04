@@ -36,9 +36,20 @@ def calcular_estadisticas():
         return
     datos.sort() ##Ordena de menor a mayor la lista
     total = len(datos)
+
+    if total % 2 == 1:
+        mediana = datos[total // 2]
+    else:
+        mediana = (datos[total // 2 - 1] + datos[total // 2]) / 2
+
     promedio = sum(datos) / total
-    mediana = datos[total//2] if total % 2 == 1 else (datos[total//2 - 1] + datos[total//2]) / 2
-    desviacion = (sum((x - promedio) ** 2 for x in datos) / total) ** 0.5
+
+    suma_cuadrados = 0
+    for x in datos:
+        suma_cuadrados += (x - promedio) ** 2           ##(x - promedio) = calcula la diferencia entre el dato y el promedio, es decir,
+                                                        #cuánto se aleja ese número de la media
+    desviacion = (suma_cuadrados / total) ** 0.5
+
     print("Cantidad:", total)
     print("Promedio:", promedio)
     print("Mediana:", mediana)
