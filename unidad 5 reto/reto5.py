@@ -116,10 +116,7 @@ def vocales_txt():
 
 
 def menu_txt():
-    print("\nOpciones para el archivo TXT:")
-    print("1. Contar palabras y letras")
-    print("2. Cambiar una palabra")
-    print("3. Ver cuántas vocales hay")
+    print("\nOpciones para el archivo TXT:\n1. Contar palabras y letras\n2. Cambiar una palabra\n3. Ver cuántas vocales hay\n")
     opcion = input("Elige una opción: ")
     if opcion == "1":
         contar_txt()
@@ -130,10 +127,7 @@ def menu_txt():
 
 
 def menu_csv():
-    print("\nOpciones para el archivo CSV:")
-    print("1. Ver primeras filas")
-    print("2. Ver estadísticas")
-    print("3. Ver gráficos")
+    print("\nOpciones para el archivo CSV:\n1. Ver primeras filas\n2. Ver estadísticas\n3. Ver gráficos\n")
     opcion = input("Elige una opción: ")
     if opcion == "1":
         ver_csv()
@@ -144,10 +138,8 @@ def menu_csv():
 
 def main():
     while True:
-        print("Menú Principal")
-        print("1. Usar archivo TXT")
-        print("2. Usar archivo CSV")
-        print("3. Salir")
+        print("Menú Principal:\n1. Usar archivo TXT\n2. Usar archivo CSV\n3. Salir\n")
+        
         opcion = input("Escribe tu opción: ")
         if opcion == "1":
             menu_txt()
