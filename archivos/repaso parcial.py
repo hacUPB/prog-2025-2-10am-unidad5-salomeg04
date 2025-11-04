@@ -116,7 +116,7 @@ with open("frutas.txt", "r", encoding="utf-8") as archivo:
 
     print(palabra.count("manzana")))
 '''
-
+'''
 import csv
 import matplotlib.pyplot as plt
 
@@ -134,3 +134,43 @@ plt.texto("ventas de cada producto")
 plt.xlabel(producto)
 plt.ylabel(cantidad)
 plt.show()
+'''
+
+'''
+with open("palabras.txt" , "r" , encoding="utf-8") as archivo:
+    texto = archivo.read()
+    palabra = texto.split()
+print(palabra.count("hola"))
+print(palabra.count("python"))
+print(palabra.count("mundo"))
+'''
+'''
+import csv
+
+with open("notas.csv", "r", encoding="utf-8") as archivo:
+    lector = csv.DictReader(archivo)
+    with open("aprobados.txt", "w", encoding="utf-8") as aprob:
+        for fila in lector:
+            if float(fila["nota"]) >= 3.0:
+                aprob.write(fila["nombre"] + "\n")
+
+'''
+
+'''
+import matplotlib.pyplot as plt
+import csv
+
+pais = [ ]
+poblacion = [ ]
+
+with open("paises.csv" , "r" , encoding="utf-8") as archivo:
+    lector = csv.DictReader(archivo)
+    for fila in lector:
+        pais.append(fila["pais"])
+        poblacion.append(fila["poblacion"])
+plt.bar(pais,poblacion)
+plt.title("poblacion de cada pais")
+plt.xlabel(pais)
+plt.ylabel(poblacion)
+plt.show()
+'''
